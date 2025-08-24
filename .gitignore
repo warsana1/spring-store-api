@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore sensitive config files
+src/main/resources/application.yaml
+pom.xml
+
