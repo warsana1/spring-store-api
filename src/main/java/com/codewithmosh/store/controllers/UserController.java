@@ -1,5 +1,6 @@
 package com.codewithmosh.store.controllers;
 
+import com.codewithmosh.store.dtos.RegisterUserRequest;
 import com.codewithmosh.store.dtos.UserDto;
 import com.codewithmosh.store.mappers.UserMapper;
 import com.codewithmosh.store.repositories.UserRepository;
@@ -35,4 +36,11 @@ public class UserController {
         }
         return ResponseEntity.ok(userMapper.toDto(user));
     }
+    @PostMapping
+    public ResponseEntity<UserDto> registerUser(@RequestBody RegisterUserRequest request) {
+        var user = userMapper.toEntity(request);
+        userRepository.save(user);
+        return ResponseEntity.ok(userMapper.toDto(user));
+    }
+
 }
