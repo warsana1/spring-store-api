@@ -1,17 +1,14 @@
 package com.codewithmosh.store.dtos;
 
-import com.codewithmosh.store.entities.Category;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
-@AllArgsConstructor
-@Getter
+@Data
 public class ProductDto {
     private Long id;
     private String name;
     private String description;
     private BigDecimal price;
-    private Long categoryId;
+    private Byte categoryId;
 }
