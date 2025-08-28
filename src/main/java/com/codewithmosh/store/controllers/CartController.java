@@ -87,4 +87,17 @@ public class CartController {
         return ResponseEntity.ok(cartItemDto);
     }
 
+    @DeleteMapping("/{cartId}/items/{productId}")
+    public ResponseEntity<?> deleteCart(@PathVariable("cartId") UUID cartId, @PathVariable("productId") Long productId) {
+        var cart = cartRepository.getCartWithItems(cartId).orElse(null);
+        if (cart == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                    Map.of("error", "Cart not found")
+            );
+        }
+       cart.removeItem(productId);
+        cartRepository.save(cart);
+        return ResponseEntity.ok().build();
+    }
+
 }
