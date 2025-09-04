@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: store
+  datasource:
+    url: jdbc:mysql://localhost:3307/store_api?createDatabaseIfNotExist=true
+    username: root
+    password: Your Password
+  jpa:
+    show-sql: true
+  jwt:
+    secret: ${JWT_SECRET}
+    accessTokenExpiration: 900
+    refreshTokenExpiration: 604800
+stripe:
+  secretKey: ${STRIPE_SECRET_KEY}
+  webhookSecretKey: ${STRIPE_WEBHOOK_SECRET_KEY}
+websiteUrl: http://localhost:4242
+
+
