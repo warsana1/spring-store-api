@@ -28,6 +28,7 @@
     </scm>
     <properties>
         <java.version>17</java.version>
+        <lombok.version>1.18.38</lombok.version>
     </properties>
     <dependencies>
         <dependency>
@@ -127,6 +128,10 @@
             <artifactId>stripe-java</artifactId>
             <version>29.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
     </dependencies>
 
@@ -158,7 +163,7 @@
                 <configuration>
                     <url>jdbc:mysql://localhost:3307/store_api?createDatabaseIfNotExist=true</url>
                     <user>root</user>
-                    <password>Your Password</password>
+                    <password>${env.DB_PASSWORD}</password>
                     <cleanDisabled>false</cleanDisabled>
                 </configuration>
             </plugin>
